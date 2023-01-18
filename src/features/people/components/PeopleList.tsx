@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import type { User } from "../interfaces";
+import type { People } from "../interfaces";
 import { Text } from "~components";
 import styled from "styled-components/native";
 import CountryFlag from "react-native-country-flag";
@@ -31,11 +31,11 @@ const shadow = {
   elevation: 2,
 };
 
-interface UsersListProps {
-  user: User;
+interface PeopleListProps {
+  people: People;
 }
 
-export const UsersList: FC<UsersListProps> = ({ user }) => {
+export const PeopleList: FC<PeopleListProps> = ({ people }) => {
   const MainContainer = styled.View`
     align-items: center;
     background-color: #ffffff;
@@ -53,21 +53,21 @@ export const UsersList: FC<UsersListProps> = ({ user }) => {
         <Text
           weight="semiBold"
           size="large"
-        >{`${user.name.title}. ${user.name.first} ${user.name.last}`}</Text>
+        >{`${people.name.title}. ${people.name.first} ${people.name.last}`}</Text>
         <Text size="medium" color="opacity">
-          Género: {user.gender === "female" ? "♀" : "♂"}
+          Género: {people.gender === "female" ? "♀" : "♂"}
         </Text>
         <Text size="medium" color="opacity">
-          {user.email}
+          {people.email}
         </Text>
       </ContentContainer>
       <AvatarContainer>
         <Avatar
           source={{
-            uri: user.picture.thumbnail,
+            uri: people.picture.thumbnail,
           }}
         />
-        <CountryFlag isoCode={user.nat} size={15} />
+        <CountryFlag isoCode={people.nat} size={15} />
       </AvatarContainer>
     </MainContainer>
   );

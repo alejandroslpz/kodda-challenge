@@ -1,6 +1,6 @@
 type GenderType = "female" | "male";
 
-export interface User {
+export interface People {
   gender: GenderType;
   name: {
     title: string;

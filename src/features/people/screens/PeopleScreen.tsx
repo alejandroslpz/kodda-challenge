@@ -5,12 +5,12 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { EmptyState, Text } from "~components";
-import { useUser } from "../hooks";
-import type { User } from "../interfaces";
-import { UsersList } from "../components/UsersList";
+import { usePeople } from "../hooks";
+import type { People } from "../interfaces";
+import { PeopleList } from "../components/PeopleList";
 import styled from "styled-components/native";
 
-type FlatListType<User> = FC<FlatListProps<User>>;
+type FlatListType<People> = FC<FlatListProps<People>>;
 
 const MainContainer = styled.View`
   flex: 1;
@@ -23,20 +23,20 @@ const TitleContainer = styled.View`
 const List = styled.FlatList`
   flex: 1;
   padding: 0 16px;
-`<FlatListType<User>>;
+`<FlatListType<People>>;
 
-const renderItem: ListRenderItem<User> = ({ item }) => (
-  <UsersList user={item} />
+const renderItem: ListRenderItem<People> = ({ item }) => (
+  <PeopleList people={item} />
 );
 
-const KeyExtractor = (item: User) => item.login.uuid;
+const KeyExtractor = (item: People) => item.login.uuid;
 
 export const PeopleScreen: FC = () => {
-  const { users, loading, error } = useUser();
+  const { people, loading, error } = usePeople();
 
-  const usersData = useMemo(() => users, [users]);
+  const peopleData = useMemo(() => people, [people]);
 
-  //TODO: Implement onEndReached
+  //TODO: Implement onEndReached function to load more people
   const onEndReached = useCallback(() => {}, []);
 
   return (
@@ -54,7 +54,7 @@ export const PeopleScreen: FC = () => {
       {error && <EmptyState text="Error al cargar usuarios" />}
       {!loading && !error && (
         <List
-          data={usersData}
+          data={peopleData}
           renderItem={renderItem}
           ListEmptyComponent={<EmptyState text="No hay usuarios que mostrar" />}
           keyExtractor={KeyExtractor}

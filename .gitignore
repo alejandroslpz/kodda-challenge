@@ -16,3 +16,6 @@ web-build/
 # Yarn
 yarn-error.log
 yarn.lock
+
+# Environment
+.env

@@ -1,7 +1,7 @@
 import { create } from "apisauce";
 
 interface ApiProps {
-  baseURL: string;
+  baseURL: string | undefined;
 }
 
 export const apiProvider = ({ baseURL }: ApiProps) => {
