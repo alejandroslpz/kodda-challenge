@@ -16,6 +16,18 @@
 
 ● Estilos - Styled components
 
+# How to use:
+
+Install [expo](https://docs.expo.dev/get-started/installation/)
+
+● Create .env file with: 
+
+REACT_APP_API_RANDOM_USER='https://randomuser.me/api'
+
+● type yarn on your terminal
+
+● yarn start ios | yarn start android
+
 # Descripción
 
 La intención de este proyecto es tener un acercamiento a las capacidades técnicas del aplicante
