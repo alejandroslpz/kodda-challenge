@@ -32,12 +32,18 @@ const renderItem: ListRenderItem<People> = ({ item }) => (
 const KeyExtractor = (item: People) => item.login.uuid;
 
 export const PeopleScreen: FC = () => {
-  const { people, loading, error } = usePeople();
+  const { people, loading, error, getMorePeople, getNewPeople, pagination } =
+    usePeople();
 
   const peopleData = useMemo(() => people, [people]);
 
-  //TODO: Implement onEndReached function to load more people
-  const onEndReached = useCallback(() => {}, []);
+  const onRefresh = useCallback(() => {
+    getNewPeople();
+  }, [getNewPeople]);
+
+  const onEndReached = useCallback(() => {
+    getMorePeople(20, pagination);
+  }, [getMorePeople]);
 
   return (
     <MainContainer>
@@ -58,6 +64,8 @@ export const PeopleScreen: FC = () => {
           renderItem={renderItem}
           ListEmptyComponent={<EmptyState text="No hay usuarios que mostrar" />}
           keyExtractor={KeyExtractor}
+          onRefresh={onRefresh}
+          refreshing={loading}
           onEndReached={onEndReached}
           onEndReachedThreshold={0.5}
         />

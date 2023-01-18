@@ -1,6 +1,6 @@
-import { create } from "apisauce";
+import { type ApisauceConfig, create } from "apisauce";
 
-interface ApiProps {
+interface ApiProps extends ApisauceConfig {
   baseURL: string | undefined;
 }
 
