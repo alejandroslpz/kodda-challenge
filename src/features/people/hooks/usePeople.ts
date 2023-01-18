@@ -2,10 +2,6 @@ import { useState, useEffect } from "react";
 import type { People } from "~features/people/interfaces";
 import { getPeople } from "../api";
 
-interface UserApiResponse {
-  results: People[];
-}
-
 export const usePeople = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
