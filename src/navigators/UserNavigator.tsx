@@ -4,7 +4,7 @@ import {
 } from "@react-navigation/drawer";
 import type { FC } from "react";
 import { PeopleScreen } from "~features/people/screens/PeopleScreen";
-import { Button } from "~components";
+import { Button, Text } from "~components";
 import { useAuthContext, useAvatar } from "~hooks";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styled from "styled-components/native";
@@ -22,9 +22,7 @@ const Avatar = styled.Image`
   width: 100px;
 `;
 
-const Label = styled.Text`
-  font-size: 20px;
-  font-weight: 600;
+const TextContainer = styled.View`
   margin: 16px 0;
 `;
 
@@ -54,7 +52,11 @@ const DrawerContent: FC<DrawerContentComponentProps> = () => {
   return (
     <MainContainer>
       <Avatar source={defaultAvatar} />
-      <Label>{user}</Label>
+      <TextContainer>
+        <Text size="large" weight="semiBold">
+          {user}
+        </Text>
+      </TextContainer>
       <Button
         onPress={handleSubmit}
         isFullWidth
