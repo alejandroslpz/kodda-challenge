@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import type { People } from "~features/people/interfaces";
-import { getPeople } from "../api/apiPeople";
+import { getPeople } from "../api";
 
 interface UserApiResponse {
   results: People[];
