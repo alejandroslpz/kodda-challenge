@@ -14,7 +14,7 @@
 
 ● Provider - React Hooks - useContext & useReducer
 
-● Stilos - Styled components
+● Estilos - Styled components
 
 # Descripción
 
@@ -25,6 +25,7 @@ El proyecto deberá de estar disponible en github o algún sitio donde se pueda 
 versiones.
 
 # Objetivo:
+
 Hacer una aplicación de react native donde a través de un tipo de autenticación, un usuario acceda
 a una segunda pantalla donde se despliega una lista de personas con su información.
 
@@ -42,3 +43,11 @@ Cada persona que se despliegue de la segunda pangalla debe tener diferente infor
 ● se consume el API de: https://randomuser.me/ .
 
 ● No usar redux.
+
+# Screenshots:
+
+![Login](https://github.com/alejandroslpz/kodda-challenge/blob/main/src/assets/login.png?raw=true)
+
+![People](https://github.com/alejandroslpz/kodda-challenge/blob/main/src/assets/people.png?raw=true)
+
+![Logout](https://github.com/alejandroslpz/kodda-challenge/blob/main/src/assets/logout.png?raw=true)
